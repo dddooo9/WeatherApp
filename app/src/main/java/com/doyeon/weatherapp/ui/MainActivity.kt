@@ -1,4 +1,4 @@
-package com.doyeon.weatherapp
+package com.doyeon.weatherapp.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
