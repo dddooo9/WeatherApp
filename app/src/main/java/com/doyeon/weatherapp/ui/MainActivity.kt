@@ -31,6 +31,11 @@ class MainActivity : AppCompatActivity() {
         viewModel.searchWeather()
     }
 
+    private fun setWeatherAdapter() {
+        weatherAdapter = WeatherAdapter()
+        binding.rvMainWeather.adapter = weatherAdapter
+    }
+
     private fun setObserver() {
         viewModel.localWeather.observe(this) {
             val dataForAddHeader: MutableList<LocalWeather?> = it.toMutableList()
@@ -38,10 +43,5 @@ class MainActivity : AppCompatActivity() {
 
             weatherAdapter.submitList(dataForAddHeader)
         }
-    }
-
-    private fun setWeatherAdapter() {
-        weatherAdapter = WeatherAdapter()
-        binding.rvMainWeather.adapter = weatherAdapter
     }
 }
