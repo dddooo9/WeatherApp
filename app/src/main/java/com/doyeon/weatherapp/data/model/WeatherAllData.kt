@@ -1,6 +1,5 @@
 package com.doyeon.weatherapp.data.model
 
-import com.doyeon.weatherapp.domain.model.WeatherData
 import com.google.gson.annotations.SerializedName
 
 data class WeatherAllData(
