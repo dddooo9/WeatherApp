@@ -5,11 +5,15 @@
 
     <data>
 
+        <variable
+            name="weatherData"
+            type="com.doyeon.weatherapp.data.model.WeatherData" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:padding="5dp">
 
         <ImageView
             android:id="@+id/iv_weather_data_type"
@@ -18,6 +22,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:weatherType="@{weatherData.weatherSummary}"
             tools:src="@drawable/ic_launcher_background" />
 
         <TextView
@@ -25,6 +30,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
+            android:text="@{weatherData.weatherName}"
             android:textColor="@color/black"
             app:layout_constraintBottom_toTopOf="@id/tv_weather_data_temp"
             app:layout_constraintStart_toEndOf="@id/iv_weather_data_type"
@@ -35,6 +41,7 @@
             android:id="@+id/tv_weather_data_temp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@{@string/weather_temperature(Math.round(weatherData.temperature))}"
             android:textColor="@color/red"
             app:layout_constraintBottom_toBottomOf="@id/iv_weather_data_type"
             app:layout_constraintStart_toStartOf="@id/tv_weather_data_type"
@@ -46,6 +53,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
+            android:text="@{@string/weather_humidity(Math.round(weatherData.humidity))}"
             android:textColor="@color/gray03"
             app:layout_constraintBottom_toBottomOf="@id/tv_weather_data_temp"
             app:layout_constraintStart_toEndOf="@id/tv_weather_data_temp"
