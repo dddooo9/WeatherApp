@@ -9,6 +9,8 @@ import com.doyeon.weatherapp.data.model.WeatherSearchData
 import com.doyeon.weatherapp.domain.model.LocalWeather
 import com.doyeon.weatherapp.domain.repository.WeatherRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Deferred
+import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -24,7 +26,10 @@ class MainViewModel @Inject constructor(
         viewModelScope.launch {
             weatherRepository.getLocation()
                 .onSuccess { locations ->
-                    _weatherData.value = locations.mapNotNull { getWeatherWithLocation(it) }
+                    val asyncTasks = mutableListOf<Deferred<LocalWeather?>>()
+                    locations.forEach { asyncTasks.add(async { getWeatherWithLocation(it) }) }
+
+                    _weatherData.value = asyncTasks.mapNotNull { it.await() }
                 }
                 .onFailure {
                     Log.e(this.javaClass.name, it.message ?: "search error")
