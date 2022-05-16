@@ -28,8 +28,9 @@ class MainActivity : AppCompatActivity() {
     private fun initView() {
         setWeatherAdapter()
         setObserver()
+        setSwipeListener()
 
-        viewModel.searchWeather()
+        loadWeatherData()
     }
 
     private fun setWeatherAdapter() {
@@ -43,11 +44,27 @@ class MainActivity : AppCompatActivity() {
             dataForAddHeader.add(0, null)
 
             weatherAdapter.submitList(dataForAddHeader)
-            invisibleProgressBar()
+
+            if (binding.srlMain.isRefreshing) {
+                binding.srlMain.isRefreshing = false
+            } else {
+                invisibleProgressBar()
+            }
         }
     }
 
     private fun invisibleProgressBar() {
         binding.pbMainWeather.isVisible = false
+    }
+
+    private fun setSwipeListener() {
+        binding.srlMain.setOnRefreshListener {
+            loadWeatherData()
+            weatherAdapter.submitList(null)
+        }
+    }
+
+    private fun loadWeatherData() {
+        viewModel.searchWeather()
     }
 }
