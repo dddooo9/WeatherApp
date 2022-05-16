@@ -16,6 +16,7 @@
         android:background="@color/white"
         android:divider="@drawable/separator_width_1"
         android:gravity="center"
+        android:foreground="@drawable/bg_weather_outline"
         android:orientation="horizontal"
         android:showDividers="middle"
         android:weightSum="12">

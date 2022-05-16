@@ -10,6 +10,7 @@
         android:layout_height="wrap_content"
         android:background="@color/gray01"
         android:divider="@drawable/separator_width_1"
+        android:foreground="@drawable/bg_rectangle_stroke_1"
         android:gravity="center"
         android:orientation="horizontal"
         android:showDividers="middle"

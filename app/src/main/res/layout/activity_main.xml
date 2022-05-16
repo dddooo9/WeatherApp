@@ -32,7 +32,6 @@
             android:layout_marginHorizontal="20dp"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="10dp"
-            android:foreground="@drawable/bg_rectangle_stroke_1"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constrainedHeight="true"
             app:layout_constraintBottom_toBottomOf="parent"
