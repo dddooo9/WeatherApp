@@ -5,6 +5,8 @@
 
     <data>
 
+        <import type="androidx.core.text.HtmlCompat" />
+
         <variable
             name="weatherData"
             type="com.doyeon.weatherapp.data.model.WeatherData" />
@@ -41,7 +43,7 @@
             android:id="@+id/tv_weather_data_temp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{@string/weather_temperature(Math.round(weatherData.temperature))}"
+            android:text="@{HtmlCompat.fromHtml(@string/weather_temperature(Math.round(weatherData.temperature)), HtmlCompat.FROM_HTML_MODE_COMPACT)}"
             android:textColor="@color/red"
             app:layout_constraintBottom_toBottomOf="@id/iv_weather_data_type"
             app:layout_constraintStart_toStartOf="@id/tv_weather_data_type"
@@ -53,7 +55,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:text="@{@string/weather_humidity(Math.round(weatherData.humidity))}"
+            android:text="@{HtmlCompat.fromHtml(@string/weather_humidity(Math.round(weatherData.humidity)), HtmlCompat.FROM_HTML_MODE_COMPACT)}"
             android:textColor="@color/gray03"
             app:layout_constraintBottom_toBottomOf="@id/tv_weather_data_temp"
             app:layout_constraintStart_toEndOf="@id/tv_weather_data_temp"

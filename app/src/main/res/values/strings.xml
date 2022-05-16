@@ -6,6 +6,6 @@
     <string name="weather_title_today">Today</string>
     <string name="weather_title_tomorrow">Tomorrow</string>
 
-    <string name="weather_temperature"><b>%d</b>°C</string>
-    <string name="weather_humidity"><b>%d</b>\%%</string>
+    <string name="weather_temperature"><![CDATA[<b>%d</b>]]>°C</string>
+    <string name="weather_humidity"><![CDATA[<b>%d</b>]]>\%%</string>
 </resources>
