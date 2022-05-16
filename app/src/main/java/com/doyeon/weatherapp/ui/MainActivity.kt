@@ -3,6 +3,7 @@ package com.doyeon.weatherapp.ui
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
 import com.doyeon.weatherapp.R
 import com.doyeon.weatherapp.databinding.ActivityMainBinding
@@ -42,6 +43,11 @@ class MainActivity : AppCompatActivity() {
             dataForAddHeader.add(0, null)
 
             weatherAdapter.submitList(dataForAddHeader)
+            invisibleProgressBar()
         }
+    }
+
+    private fun invisibleProgressBar() {
+        binding.pbMainWeather.isVisible = false
     }
 }
