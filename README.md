@@ -1,4 +1,5 @@
 # WeatherApp
+`MetaWeather`의 Open API를 사용하여 **se로 시작하는 지역의 오늘, 내일 날씨**를 보여주는 앱.
 
 # 프로젝트 구현 결과
 
